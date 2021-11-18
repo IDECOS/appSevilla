@@ -1,44 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/region"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:gravity="center"
     tools:context=".MainActivity">
 
-    <TextView
-        android:id="@+id/tituloBasilica"
-        android:layout_width="wrap_content"
+    <ScrollView
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="BASILICA SAN LUIS GONZAGA"
-        android:textColor="#673AB7"
-        android:textSize="24sp" />
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        android:fillViewport="true"
+        app:layout_constraintTop_toTopOf="parent"/>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:id="@+id/siteView"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="100dp"
+                android:layout_marginEnd="100dp"
+                android:text="SEVILLA"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="1.0"
+                android:orientation="horizontal">
+            <ImageView
+                android:id="@+id/imageSite1"
+                android:layout_width="140dp"
+                android:layout_height="105dp"
+                android:layout_marginTop="15dp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.082"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintBaseline_toBottomOf=""
+                android:src="@drawable/basilica"/>
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+                <TextView
+                    android:id="@+id/titleSite"
+                    android:layout_width="70dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="25dp"
+                    android:layout_marginEnd="155dp"
+                    android:text="basilica"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf=""/>
+                <TextView
+                    android:id="@+id/reviewSite"
+                    android:layout_width="220dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="7dp"
+                    android:layout_marginEnd="11dp"
+                    android:text="Neque porro quisquam est qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit..."
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toBottomOf=""/>
 
-    <ImageView
-        android:id="@+id/imagenBasilica"
-        android:layout_width="300dp"
-        android:layout_height="170dp"
-        android:src="@drawable/basilica" />
-
-    <TextView
-        android:id="@+id/descripcion"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="10dp"
-        android:layout_marginEnd="10dp"
-        android:text="Su diseño arquitectónico es tipo neogótico, cuya característica es la monumentalidad de las construcciones religiosas, las columnas que terminan en el techo en forma de ojivas, figura geométrica formada por dos arcos de medio círculo simétricos que se cortan en los extremos; esa era la particularidad de la arquitectura gótica. Su fachada principal es de 20 metros de ancha y lleva tres grandes portalones, una esbelta torre de 55 metros de elevación, las paredes laterales tienen 58 metros de largas.
-" />
-
-    <ImageView
-        android:id="@+id/ubicacionbasilica"
-        android:layout_width="300dp"
-        android:layout_height="133dp"
-        android:src="@drawable/ubicacionbasilica" />
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:text="REGRESAR" />
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>
