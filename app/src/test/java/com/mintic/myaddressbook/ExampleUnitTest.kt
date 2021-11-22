@@ -1,4 +1,4 @@
-package com.example.appsevilla
+package com.mintic.myaddressbook
 
 import org.junit.Test
 
