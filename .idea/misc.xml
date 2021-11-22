@@ -3,16 +3,17 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/activity_main.xml" value="0.25" />
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/activity_main2.xml" value="0.20380434782608695" />
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/activity_main3.xml" value="0.20380434782608695" />
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/activity_miradorac.xml" value="0.20380434782608695" />
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/activity_vistas.xml" value="0.20380434782608695" />
-        <entry key="..\:/Users/admin/Documents/appSevilla/app/src/main/res/layout/contact_list_item.xml" value="0.33" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/drawable/ic_person.xml" value="0.2203125" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/activity_Basilica.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/activity_main.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/activity_main2.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/activity_main3.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/activity_miradorac.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/Proyecto/appSevilla/app/src/main/res/layout/contact_list_item.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="Android Studio default JDK" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="1.8 (2)" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
