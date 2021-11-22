@@ -24,15 +24,18 @@
     <ImageView
         android:id="@+id/imageview_thumb"
         android:layout_width="@dimen/thumbnail_size"
-        android:layout_height="@dimen/thumbnail_size"
-        android:layout_marginStart="16dp"
+        android:layout_height="0dp"
+
         android:layout_marginTop="8dp"
+        android:layout_marginEnd="320dp"
         android:layout_marginBottom="8dp"
         android:contentDescription="@string/contact_thumb"
         android:scaleType="centerCrop"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.961"
         app:srcCompat="@drawable/ic_person"
         tools:src="@mipmap/ic_launcher" />
 
@@ -49,10 +52,10 @@
         app:layout_constraintBottom_toBottomOf="parent"
 
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.093"
+        app:layout_constraintHorizontal_bias="0.088"
         app:layout_constraintStart_toEndOf="@+id/imageview_thumb"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.3"
+        app:layout_constraintVertical_bias="0.193"
         tools:text="Nombre sitio" />
 
     <TextView
@@ -82,6 +85,7 @@
         android:layout_marginTop="4dp"
         android:isIndicator="true"
         android:numStars="5"
+        android:progressTint="#FFEB3B"
         android:rating="3"
         android:visibility="visible"
         app:layout_constraintBottom_toBottomOf="parent"
