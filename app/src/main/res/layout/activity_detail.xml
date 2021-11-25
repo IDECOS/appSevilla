@@ -4,11 +4,10 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="16dp"
-    tools:context=".MainActivity">
+    android:layout_margin="16dp">
 
     <TextView
-        android:id="@+id/textView2"
+        android:id="@+id/title_view_detail"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="@string/Sitio_Sevilla"
@@ -22,21 +21,8 @@
         app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintVertical_bias="0.006" />
 
-    <Button
-        android:id="@+id/button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="220dp"
-        android:layout_marginBottom="44dp"
-        android:text="@string/btn_regresar"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView"
-        app:layout_constraintVertical_bias="0.709"
-        tools:ignore="MissingConstraints" />
-
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/text_description"
         android:layout_width="353dp"
         android:layout_height="163dp"
         android:layout_marginStart="4dp"
@@ -44,11 +30,11 @@
         android:text="@string/text_descripcion"
         android:textColor="#0097A7"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView2"
+        app:layout_constraintTop_toBottomOf="@+id/imageview_detail"
         tools:ignore="MissingConstraints" />
 
     <ImageView
-        android:id="@+id/imageView2"
+        android:id="@+id/imageview_detail"
         android:layout_width="340dp"
         android:layout_height="255dp"
         android:layout_marginTop="40dp"
@@ -56,7 +42,7 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.476"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/title_view_detail"
         app:srcCompat="@drawable/ic_cafepalomino" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
