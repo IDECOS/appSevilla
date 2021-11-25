@@ -3,6 +3,7 @@ package com.example.appsevilla
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -50,10 +51,10 @@ class MainActivity : AppCompatActivity() {
 
     private fun navegateToDetail(){
         val intent = Intent(this, DetailActivity::class.java).apply {
-            putExtra(EXTRA_NAME, misitio.nameSite)
-            putExtra(EXTRA_DESCRIPTION, misitio.description)
-            putExtra(EXTRA_RATE,misitio.rate)
-            putExtra(EXTRA_IMAGE, misitio.imageUrl)
+            intent.putExtra(KEY_NAME, misitio.nameSite)
+            intent.putExtra(KEY_DESCRIPTION, misitio.description)
+            intent.putExtra(KEY_RATE, misitio.rate)
+            intent.putExtra(KEY_IMAGE, misitio.imageUrl)
         }
         startActivity(intent)
     }
