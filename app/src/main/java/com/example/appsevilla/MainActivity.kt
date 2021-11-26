@@ -48,8 +48,8 @@ class MainActivity : AppCompatActivity() {
         Log.d(TAG, "Click en ${misitio.nameSite}")
         val intent = Intent(this, DetailActivity::class.java)
         intent.putExtra(EXTRA_MESSAGE, misitio.nameSite)
-        intent.putExtra(KEY_DESCRIPTION, misitio.description)
-        intent.putExtra(EXTRA_MESSAGE, misitio.imageUrl)
+        /*intent.putExtra(KEY_DESCRIPTION, misitio.description)
+        intent.putExtra(EXTRA_MESSAGE, misitio.imageUrl)*/
 
         startActivity(intent)
         //navegateToDetail()
