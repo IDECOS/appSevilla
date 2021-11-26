@@ -1,39 +1,16 @@
-<!--
-  Copyright 2018 Google Inc.
-
-  Licensed under the Apache License, Version 2.0 (the "License");
-  you may not use this file except in compliance with the License.
-  You may obtain a copy of the License at
-
-       http://www.apache.org/licenses/LICENSE-2.0
-
-  Unless required by applicable law or agreed to in writing, software
-  distributed under the License is distributed on an "AS IS" BASIS,
-  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-  See the License for the specific language governing permissions and
-  limitations under the License.
--->
 <resources>
-    <string name="app_name">MyAddressBook</string>
-    <string name="action_settings">Settings</string>
-    <string name="contact_thumb">Contact Thubmnail Picture</string>
-    <string name="action_clear">Clear</string>
-    <string name="new_contact">New Contact</string>
-    <string name="save">Save</string>
-    <string name="cancel">Cancel</string>
-    <string name="contact_not_valid">Please enter valid contact information</string>
-    <string name="action_generate">Generate</string>
-    <string name="first_name">First Name</string>
-    <string name="last_name">Last Name</string>
-    <string name="email_address">Email Address</string>
-    <string name="edit_contact">Edit Contact</string>
-    <string name="action_sort_first">Sort by First Name</string>
-    <string name="action_sort_last">Sort by Last Name</string>
-    <string name="textview">TextView</string>
-    <string name="title_activity_mirador">Mirador de la Cruz</string>
-    <string name="large_text">
-        Mirador alto de la Cruz
-
-    </string>
-    <string name="mirador_alto_de_la_cruz">Mirador alto de la cruz</string>
+    <string name="app_name">appSevilla</string>
+    <string name="foto_palomino">Cafe Palomino</string>
+    <string name="btn_regresar">Regresar</string>
+    <string name="text_descripcion">La esencia del Paisaje Cultural Cafetero está presente en cada aspecto y cada detalle que agregamos con amor para darle vida a Café Palomino. ¡Todo para que disfrutes una experiencia única y vivas la tradición cafetera en su máxima expresión!</string>
+    <string name="Sitio_Sevilla">Cafe Palomino</string>
+    <string name="todo">TODO</string>
+    <string name="title_site">Tituto</string>
+    <string name="sevilla_valle">Sevilla Valle</string>
+    <string name="site_thumb">Cafe Palomino</string>
+    <string name="cafe_image">cafe_image</string>
+    <string name="description">description</string>
+    <string name="rate">Rate</string>
+    <string name="descripcion">descripcion</string>
+    <string name="titulo">Titulo</string>
 </resources>

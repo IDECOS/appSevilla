@@ -48,6 +48,7 @@ class MainActivity : AppCompatActivity() {
     }
     /* RecyclerView item is clicked */
     private fun contactOnClick(contact: Contact) {
+
         Log.d(TAG, "Click on: $contact")
         navigateToDetail()
     }
