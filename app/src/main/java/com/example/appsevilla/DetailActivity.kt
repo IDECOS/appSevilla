@@ -2,7 +2,8 @@ package com.example.appsevilla
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
+import android.util.Log
+import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -12,32 +13,32 @@ class DetailActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detail)
 
-        val name = intent.getStringExtra(EXTRA_MESSAGE)
-        val description = intent.getStringExtra(EXTRA_MESSAGE)
-        //val imageUrl = intent.getStringExtra(EXTRA_MESSAGE)
+        val title = intent.getStringExtra(MainActivity.KEY_NAME)
+        val description = intent.getStringExtra(MainActivity.KEY_DESCRIPTION)
+        val image = intent.getStringExtra(MainActivity.KEY_IMAGE)
 
-        val titleView: TextView = findViewById<TextView>(R.id.title_view_detail).apply {
-            name.also {
-                it.also {
-                    text = it
-                }
-            }
-        }
-        /*val descriptionView: TextView = findViewById<TextView>(R.id.text_description).apply {
-            description.also {
-                it.also {
-                    text = it
-                }
-            }
-        }*/
-        /*val imageView: ImageView = findViewById(R.id.imageview_detail).apply {
-            imageUrl.also {
-                it.also {
-                    text.it
-                }
-            }
-        }*/
+        var titleLabel: TextView = findViewById(R.id.title_view_detail)
+        var descriptionLabel: TextView = findViewById(R.id.text_description)
+        //var rateLabel: TextView = itemView.findViewById(R.id.rate)
+        var imageView: ImageView = findViewById(R.id.imageview_detail)
+        var currentSite: SitioSevilla? = null
+
+        titleLabel.text = title
+        descriptionLabel.text = description
+
+        Glide.with(imageView)
+            .load(image)
+            .into(imageView)
 
 
+        Log.d(TAG, "$title")
+        Log.d(TAG, "$description")
+        Log.d(TAG, "$image")
+
+
+    }
+
+    companion object {
+        private val TAG = DetailActivity::class.java.simpleName
     }
 }
