@@ -3,7 +3,6 @@ package com.example.appsevilla
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.provider.AlarmClock.EXTRA_MESSAGE
 import android.util.Log
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
@@ -11,14 +10,13 @@ import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
 import java.util.ArrayList
+import com.example.appsevilla.SitioSevilla as SitioSevilla
 
 class MainActivity : AppCompatActivity() {
 
     private lateinit var listSites: ArrayList<SitioSevilla>
     private lateinit var siteAdapter: SitiosAdapter
     private lateinit var recycler: RecyclerView
-
-    private lateinit var misitio: SitioSevilla
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -47,17 +45,22 @@ class MainActivity : AppCompatActivity() {
     private fun misitioOnClick(misitio: SitioSevilla){
         Log.d(TAG, "Click en ${misitio.nameSite}")
         val intent = Intent(this, DetailActivity::class.java)
-        intent.putExtra(EXTRA_MESSAGE, misitio.nameSite)
-        /*intent.putExtra(KEY_DESCRIPTION, misitio.description)
-        intent.putExtra(EXTRA_MESSAGE, misitio.imageUrl)*/
+            intent.putExtra(KEY_NAME, misitio.nameSite)
+            intent.putExtra(KEY_DESCRIPTION, misitio.description)
+            intent.putExtra(KEY_IMAGE, misitio.imageUrl)
 
         startActivity(intent)
-        //navegateToDetail()
+        //navegateToDetail(misitio)
+
     }
 
-    /*private fun navegateToDetail(){
-        val intent = Intent(this, DetailActivity::class.java)
+   /* private fun navegateToDetail(misitio: SitioSevilla){
+        val intent = Intent(this, DetailActivity::class.java).apply {
             intent.putExtra(KEY_NAME, misitio.nameSite)
+            intent.putExtra(KEY_DESCRIPTION, misitio.description)
+            intent.putExtra(KEY_IMAGE, misitio.imageUrl)
+
+        }
         startActivity(intent)
     }*/
 
@@ -109,5 +112,8 @@ class MainActivity : AppCompatActivity() {
 
     companion object{
         private val TAG = MainActivity::class.java.simpleName
+        const val KEY_NAME = "name_extra_title"
+        const val KEY_DESCRIPTION = "name_extra_description"
+        const val KEY_IMAGE = "name_extra_imageUrl"
     }
 }
