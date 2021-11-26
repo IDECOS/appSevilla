@@ -46,18 +46,20 @@ class MainActivity : AppCompatActivity() {
 
     private fun misitioOnClick(misitio: SitioSevilla){
         Log.d(TAG, "Click en ${misitio.nameSite}")
-        navegateToDetail()
+        val intent = Intent(this, DetailActivity::class.java)
+        intent.putExtra(EXTRA_MESSAGE, misitio.nameSite)
+        intent.putExtra(KEY_DESCRIPTION, misitio.description)
+        intent.putExtra(EXTRA_MESSAGE, misitio.imageUrl)
+
+        startActivity(intent)
+        //navegateToDetail()
     }
 
-    private fun navegateToDetail(){
-        val intent = Intent(this, DetailActivity::class.java).apply {
+    /*private fun navegateToDetail(){
+        val intent = Intent(this, DetailActivity::class.java)
             intent.putExtra(KEY_NAME, misitio.nameSite)
-            intent.putExtra(KEY_DESCRIPTION, misitio.description)
-            intent.putExtra(KEY_RATE, misitio.rate)
-            intent.putExtra(KEY_IMAGE, misitio.imageUrl)
-        }
         startActivity(intent)
-    }
+    }*/
 
     private fun generateSites(){
         val sitioString = readSitesFromJsonFile()
