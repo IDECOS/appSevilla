@@ -13,7 +13,7 @@
         android:layout_height="wrap_content"
         android:fontFamily="@font/days_one"
         android:paddingTop="10dp"
-        android:text="@string/mirador_alto_de_la_cruz"
+        android:text="mirador_alto_de_la_cruz"
         android:textAllCaps="true"
         android:textColor="#FF5722"
         android:textIsSelectable="false"
