@@ -48,7 +48,6 @@ class MainActivity : AppCompatActivity() {
             intent.putExtra(KEY_NAME, misitio.nameSite)
             intent.putExtra(KEY_DESCRIPTION, misitio.description)
             intent.putExtra(KEY_IMAGE, misitio.imageUrl)
-
         startActivity(intent)
         //navegateToDetail(misitio)
 

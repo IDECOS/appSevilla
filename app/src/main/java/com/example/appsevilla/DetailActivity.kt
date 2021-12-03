@@ -3,7 +3,6 @@ package com.example.appsevilla
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
-import android.view.View
 import android.widget.ImageView
 import android.widget.TextView
 import com.bumptech.glide.Glide
@@ -21,7 +20,6 @@ class DetailActivity : AppCompatActivity() {
         var descriptionLabel: TextView = findViewById(R.id.text_description)
         //var rateLabel: TextView = itemView.findViewById(R.id.rate)
         var imageView: ImageView = findViewById(R.id.imageview_detail)
-        var currentSite: SitioSevilla? = null
 
         titleLabel.text = title
         descriptionLabel.text = description

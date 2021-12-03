@@ -21,4 +21,7 @@
     <string name="description">Descripcion</string>
     <string name="rate">Rate</string>
     <string name="sevilla_valle">Sevilla Valle</string>
+    <string name="Sitio_Sevilla">Titulo</string>
+    <string name="text_descripcion">Descripcion</string>
+    <string name="todo">TODO</string>
 </resources>
