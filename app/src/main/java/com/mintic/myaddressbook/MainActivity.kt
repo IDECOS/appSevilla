@@ -6,10 +6,11 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.RecyclerView
-import java.io.IOException
-import java.util.ArrayList
+import com.example.appsevilla.R
 import org.json.JSONArray
 import org.json.JSONException
+import java.io.IOException
+import java.util.*
 
 class MainActivity : AppCompatActivity() {
 
@@ -19,14 +20,14 @@ class MainActivity : AppCompatActivity() {
 
     private lateinit var contact: Contact
 
-    override  fun onCreate(savedInstanceState: Bundle?) {
+    override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
         recycler = findViewById(R.id.contact_list)
         setupRecyclerView()
         generateContacts()
-    // mContacts = createMockContacts()
+        // mContacts = createMockContacts()
     }
 
     /**
@@ -46,14 +47,16 @@ class MainActivity : AppCompatActivity() {
 
         recycler.adapter = mAdapter
     }
+
     /* RecyclerView item is clicked */
     private fun contactOnClick(contact: Contact) {
+
         Log.d(TAG, "Click on: $contact")
         navigateToDetail()
     }
 
     private fun navigateToDetail() {
-        val intent = Intent(this, miradorActivity::class.java)
+        val intent = Intent(this, MainActivity::class.java)
         startActivity(intent)
     }
 
