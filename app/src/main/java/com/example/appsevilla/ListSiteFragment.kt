@@ -1,11 +1,15 @@
 package com.example.appsevilla
 
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.FragmentManager
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
@@ -59,9 +63,29 @@ class ListSiteFragment : Fragment() {
     }
 
     private fun misitioOnClick(misitio: SitioSevilla) {
+
         Log.d(TAG, "Click en ${misitio.nameSite}")
 
+        var detailFragment = requireActivity().supportFragmentManager.findFragmentById(R.id.fragment_detail) as DetailFragment?
+
+        if (detailFragment != null) {
+            navigateTo(detailFragment, true)
+        }
+
     }
+
+    private fun navigateTo(fragment: DetailFragment, backStack: Boolean = false) {
+
+        val ft: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
+        ft.apply {
+            replace(R.id.activity_main, fragment)
+            if (backStack){
+                addToBackStack(null)
+            }
+            commit()
+        }
+    }
+
 
     private fun generateSites(){
         val sitioString = readSitesFromJsonFile()
@@ -120,9 +144,9 @@ class ListSiteFragment : Fragment() {
 
     companion object {
         private val TAG = ListSiteFragment::class.java.simpleName
-//        const val KEY_NAME = "name_extra_title"
-//        const val KEY_DESCRIPTION = "name_extra_description"
-//        const val KEY_IMAGE = "name_extra_imageUrl"
+        const val KEY_NAME = "name_extra_title"
+        const val KEY_DESCRIPTION = "name_extra_description"
+        const val KEY_IMAGE = "name_extra_imageUrl"
     }
 
 

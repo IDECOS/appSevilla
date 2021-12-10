@@ -7,7 +7,9 @@
         <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/activity_item_sitio.xml" value="0.1" />
         <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/activity_miradorac.xml" value="0.20416666666666666" />
-        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/fragment_item_site.xml" value="0.1" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/fragment_detail.xml" value="0.20416666666666666" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/fragment_item_site.xml" value="0.22" />
+        <entry key="..\:/Users/CARLOS_BUITRAGO/AndroidStudioProjects/MinTicKotlin/Proyecto/app/src/main/res/layout/fragment_list_site.xml" value="0.20416666666666666" />
       </map>
     </option>
   </component>

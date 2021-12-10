@@ -16,7 +16,7 @@ class SitiosAdapter(
 ): RecyclerView.Adapter<SitiosAdapter.SitiosViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SitiosViewHolder {
-        val view = LayoutInflater.from(parent.context).inflate(R.layout.activity_item_sitio, parent, false)
+        val view = LayoutInflater.from(parent.context).inflate(R.layout.fragment_item_site, parent, false)
         return SitiosViewHolder(view)
     }
 
