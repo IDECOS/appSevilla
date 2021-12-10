@@ -24,7 +24,7 @@
 		android:layout_marginStart="16dp"
 		android:layout_marginTop="16dp"
 		android:layout_marginBottom="8dp"
-		android:text="@string/titulo"
+		android:text="@string/title"
 		android:maxLines="1"
 		app:layout_constraintStart_toEndOf="@+id/imageview_thumb"
 		app:layout_constraintTop_toTopOf="parent" />
@@ -36,7 +36,7 @@
 		android:layout_marginStart="16dp"
 		android:layout_marginTop="8dp"
 		android:layout_marginBottom="8dp"
-		android:text="@string/descripcion"
+		android:text="@string/description"
 		android:maxLines="1"
 		app:layout_constraintBottom_toTopOf="@+id/rate"
 		app:layout_constraintStart_toEndOf="@+id/imageview_thumb"
