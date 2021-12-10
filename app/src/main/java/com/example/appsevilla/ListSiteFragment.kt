@@ -39,13 +39,13 @@ class ListSiteFragment : Fragment() {
         recyclerView.layoutManager = layoutManager
 
         setupRecycleView()
-        //generateSites()
+        generateSites()
 
     }
 
     private fun setupRecycleView() {
-        //listSites = arrayListOf()
-        listSites = createMockContacts()
+        listSites = arrayListOf()
+        //listSites = createMockContacts()
         recyclerView.addItemDecoration(
             DividerItemDecoration(
                 requireContext(),

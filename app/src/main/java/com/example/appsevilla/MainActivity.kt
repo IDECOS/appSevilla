@@ -2,7 +2,6 @@ package com.example.appsevilla
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.example.appsevilla.R
 
 class MainActivity : AppCompatActivity() {
 
