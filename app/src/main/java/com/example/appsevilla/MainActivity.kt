@@ -4,6 +4,8 @@ package com.example.appsevilla
 import android.os.Bundle
 import android.view.*
 import androidx.appcompat.app.AppCompatActivity
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 
@@ -28,21 +30,29 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        menuInflater.inflate(R.menu.settings_menu, menu)
-        return super.onCreateOptionsMenu(menu)
+        val inflater: MenuInflater = menuInflater
+        inflater.inflate(R.menu.settings_menu, menu)
+        return true
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
+
+        val fm: FragmentManager = supportFragmentManager
+        val ft: FragmentTransaction = fm.beginTransaction()
+
         return when(item.itemId){
             R.id.settigs -> {
-                val fragment = SettingsFragment()
-                supportFragmentManager.beginTransaction().apply {
-                    replace(R.id.fragment_list_site, fragment)
-                    commit()
-                }
+                val settings = SettingsFragment()
+                ft.add(R.id.fragment_list_site, settings).commit()
+                ft.addToBackStack(null)
                 true
             }
-            else -> super.onOptionsItemSelected(item)
+            R.id.home -> {
+                onBackPressed()
+                true
+            }
+            else -> {return true}
+
         }
     }
 }
