@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 
 
@@ -18,12 +19,7 @@ import com.bumptech.glide.Glide
  */
 class DetailFragment : Fragment() {
 
-
-//    //private lateinit var listSevilla: SitioSevilla
-//    private lateinit var title: String
-//    private lateinit var description: String
-//    private lateinit var imageUrl: String
-//    private lateinit var rate: String
+    val args: DetailFragmentArgs by navArgs()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -36,26 +32,22 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-//        //listSevilla = SitioSevilla(nameSite = title, description = description, rate = rate, imageUrl = imageUrl)
-//        arguments?.let {
-//            title = listSevilla.nameSite
-//            description = listSevilla.description
-//            imageUrl = listSevilla.imageUrl
-//        }
-//
 
-//        val titleLabel: TextView = view.findViewById(R.id.title_view_detail)
-//        val descriptionLabel: TextView = view.findViewById(R.id.text_description)
-//        //var rateLabel: TextView = view.findViewById(R.id.rate)
-//        val imageView: ImageView = view.findViewById(R.id.imageview_detail)
+        val titleLabel: TextView = view.findViewById(R.id.title_view_detail)
+        val descriptionLabel: TextView = view.findViewById(R.id.text_description)
+        //var rateLabel: TextView = view.findViewById(R.id.rate)
+        val imageView: ImageView = view.findViewById(R.id.imageview_detail)
+        val title = args.nameSite
+        val description =  args.description
+        val imageUrl = args.imageUrl
 //
-//         titleLabel.text = title
-//        descriptionLabel.text = description
-//
-//        Glide.with(imageView)
-//            .load(imageUrl)
-//            .into(imageView)
-//
+        titleLabel.text = title
+        descriptionLabel.text = description
+
+        Glide.with(imageView)
+            .load(imageUrl)
+            .into(imageView)
+
 //
 //        Log.d(TAG, "$title")
 //        Log.d(TAG, "$description")

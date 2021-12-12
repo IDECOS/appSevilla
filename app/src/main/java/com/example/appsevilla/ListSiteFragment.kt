@@ -1,24 +1,21 @@
 package com.example.appsevilla
 
+
+import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
-import androidx.fragment.app.FragmentManager
-import androidx.navigation.NavController
-import androidx.navigation.fragment.findNavController
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
-
-
 
 class ListSiteFragment : Fragment() {
 
@@ -38,9 +35,7 @@ class ListSiteFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         recyclerView = view.findViewById(R.id.list_recycle)
-
         val layoutManager = LinearLayoutManager(requireContext())
-
         recyclerView.layoutManager = layoutManager
 
         setupRecycleView()
@@ -60,24 +55,29 @@ class ListSiteFragment : Fragment() {
             )
         }
         siteAdapter = SitiosAdapter(listSites, requireContext()) { misitio ->
-            misitioOnClick(misitio)
+            view?.let { misitioOnClick(misitio, it) }
         }
         recyclerView.adapter = siteAdapter
     }
 
-    private fun misitioOnClick(misitio: SitioSevilla) {
+    private fun misitioOnClick(misitio: SitioSevilla, view: View) {
         Log.d(TAG, "Click en ${misitio.nameSite}")
 
-
-       findNavController().navigate(R.id.action_listSiteFragment_to_detailFragment)
+        val action = ListSiteFragmentDirections
+            .actionListSiteFragmentToDetailFragment(misitio.nameSite,
+            misitio.description,
+            misitio.imageUrl)
+        Navigation.findNavController((view)).navigate(action)
 
     }
 
-    private fun generateSites(){
+
+    @SuppressLint("NotifyDataSetChanged")
+    private fun generateSites() {
         val sitioString = readSitesFromJsonFile()
         try {
             val sitiosJson = JSONArray(sitioString)
-            for (i in 0 until sitiosJson.length()){
+            for (i in 0 until sitiosJson.length()) {
                 val sitioJson = sitiosJson.getJSONObject(i)
                 val sitioSevilla = SitioSevilla(
                     sitioJson.getString("name_site"),
@@ -89,7 +89,7 @@ class ListSiteFragment : Fragment() {
                 listSites.add(sitioSevilla)
             }
             siteAdapter.notifyDataSetChanged()
-        }catch (e: JSONException){
+        } catch (e: JSONException) {
             e.printStackTrace()
         }
     }
@@ -104,7 +104,7 @@ class ListSiteFragment : Fragment() {
             inputStream.close()
 
             sitesSevillaString = String(buffer)
-        }catch (e: IOException){
+        } catch (e: IOException) {
             e.printStackTrace()
         }
         return sitesSevillaString
@@ -137,3 +137,4 @@ class ListSiteFragment : Fragment() {
 
 
 }
+
