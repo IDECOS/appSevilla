@@ -1,6 +1,5 @@
 package com.example.appsevilla
 
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.fragment.app.Fragment
@@ -8,7 +7,9 @@ import androidx.fragment.app.FragmentTransaction
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.FragmentManager
+import androidx.navigation.NavController
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -50,12 +51,14 @@ class ListSiteFragment : Fragment() {
     private fun setupRecycleView() {
         listSites = arrayListOf()
         //listSites = createMockContacts()
-        recyclerView.addItemDecoration(
-            DividerItemDecoration(
-                requireContext(),
-                DividerItemDecoration.VERTICAL
+        with(recyclerView) {
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
             )
-        )
+        }
         siteAdapter = SitiosAdapter(listSites, requireContext()) { misitio ->
             misitioOnClick(misitio)
         }
@@ -63,29 +66,12 @@ class ListSiteFragment : Fragment() {
     }
 
     private fun misitioOnClick(misitio: SitioSevilla) {
-
         Log.d(TAG, "Click en ${misitio.nameSite}")
 
-        var detailFragment = requireActivity().supportFragmentManager.findFragmentById(R.id.fragment_detail) as DetailFragment?
 
-        if (detailFragment != null) {
-            navigateTo(detailFragment, true)
-        }
+       findNavController().navigate(R.id.action_listSiteFragment_to_detailFragment)
 
     }
-
-    private fun navigateTo(fragment: DetailFragment, backStack: Boolean = false) {
-
-        val ft: FragmentTransaction = requireActivity().supportFragmentManager.beginTransaction()
-        ft.apply {
-            replace(R.id.activity_main, fragment)
-            if (backStack){
-                addToBackStack(null)
-            }
-            commit()
-        }
-    }
-
 
     private fun generateSites(){
         val sitioString = readSitesFromJsonFile()
