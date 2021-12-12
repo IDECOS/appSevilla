@@ -4,18 +4,20 @@ package com.example.appsevilla
 import android.annotation.SuppressLint
 import android.os.Bundle
 import android.util.Log
+import android.view.*
 import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
-import androidx.databinding.DataBindingUtil
+import androidx.fragment.app.FragmentManager
+import androidx.fragment.app.FragmentTransaction
 import androidx.navigation.Navigation
+import androidx.navigation.findNavController
+import androidx.navigation.ui.NavigationUI
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
+import java.util.zip.Inflater
 
 class ListSiteFragment : Fragment() {
 
@@ -28,6 +30,9 @@ class ListSiteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
+
+        setHasOptionsMenu(true)
+
         return inflater.inflate(R.layout.fragment_list_site, container, false)
     }
 
@@ -126,6 +131,33 @@ class ListSiteFragment : Fragment() {
                 "https://www.semana.com/resizer/_vO2-NbNOLgtaZ3bW128-KMPc1Q=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4ZVKNXJ6SVDQLFVMRDVIOYUASQ.jpg"
             )
         )
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater ) {
+        super.onCreateOptionsMenu(menu, inflater)
+        inflater.inflate(R.menu.settings_menu, menu)
+    }
+
+    override fun onOptionsItemSelected(item: MenuItem): Boolean {
+        val fm: FragmentManager = requireActivity().supportFragmentManager
+        val ft: FragmentTransaction = fm.beginTransaction()
+
+        return when(item.itemId){
+            R.id.settigs -> {
+                val settings = SettingsFragment()
+                ft.add(R.id.fragment_list_site, settings).commit()
+                ft.addToBackStack(null)
+                true
+            }
+            R.id.home -> {
+                requireActivity().onBackPressed()
+                true
+            }
+            else -> {return true}
+
+        }
+
+
     }
 
     companion object {

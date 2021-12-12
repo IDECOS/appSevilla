@@ -29,30 +29,5 @@ class MainActivity : AppCompatActivity() {
         return navController.navigateUp()
     }
 
-    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
-        val inflater: MenuInflater = menuInflater
-        inflater.inflate(R.menu.settings_menu, menu)
-        return true
-    }
 
-    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-
-        val fm: FragmentManager = supportFragmentManager
-        val ft: FragmentTransaction = fm.beginTransaction()
-
-        return when(item.itemId){
-            R.id.settigs -> {
-                val settings = SettingsFragment()
-                ft.add(R.id.fragment_list_site, settings).commit()
-                ft.addToBackStack(null)
-                true
-            }
-            R.id.home -> {
-                onBackPressed()
-                true
-            }
-            else -> {return true}
-
-        }
-    }
 }
