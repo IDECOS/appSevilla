@@ -1,18 +1,22 @@
 package com.example.appsevilla
 
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
+import android.content.Intent
+import android.net.Uri
 
 
-/**
+
+
+/*
  * A simple [Fragment] subclass.
  * Use the [DetailFragment.newInstance] factory method to
  * create an instance of this fragment.
@@ -40,7 +44,7 @@ class DetailFragment : Fragment() {
         val title = args.nameSite
         val description =  args.description
         val imageUrl = args.imageUrl
-//
+
         titleLabel.text = title
         descriptionLabel.text = description
 
@@ -48,10 +52,25 @@ class DetailFragment : Fragment() {
             .load(imageUrl)
             .into(imageView)
 
-//
-//        Log.d(TAG, "$title")
-//        Log.d(TAG, "$description")
-//        Log.d(TAG, "$imageUrl")
+        val boton: Button = view.findViewById(R.id.ubication)
+        boton.setOnClickListener {
+            ubications()
+        }
+    }
+
+
+    private fun ubications() {
+        val lat = "4.4455996"
+        val long = "75.127356"
+        // Creates an Intent that will load a map of San Francisco
+        val gmmIntentUri: Uri = Uri.parse("geo:$lat,$long")
+        val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
+        mapIntent.setPackage("com.google.android.apps.maps")
+//        mapIntent.resolveActivity(packageManager)?.let {
+            startActivity(mapIntent)
+        //}
+
+
     }
 
     companion object {
