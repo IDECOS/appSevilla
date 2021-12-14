@@ -7,6 +7,13 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.NavigationUI
 import com.example.appsevilla.databinding.ActivityMainBinding
+import com.google.gson.Gson
+import kotlinx.coroutines.CoroutineScope
+import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.launch
+import retrofit2.Response
+import retrofit2.Retrofit
+import retrofit2.converter.gson.GsonConverterFactory
 
 
 class MainActivity : AppCompatActivity() {
@@ -24,6 +31,24 @@ class MainActivity : AppCompatActivity() {
         NavigationUI.setupActionBarWithNavController(this, navController)
 
    }
+    private fun getRetrofit():Retrofit {
+        return Retrofit.Builder()
+            .baseUrl('https://my-json-server.typicode.com/IDECOS/dbapi/')
+            .addConverterFactory(GsonConverterFactory.create())
+            .build()
+    }
+    private fun searchBycoordinates(query:String){
+        CoroutineScope(Dispatchers.IO).launch {
+           val call:Response<SitePoi> = getRetrofit().create(APIService::class.java).getPoi('$query/id')
+           val pois : SitePoi?= call.body()
+           if (call.isSuccessful){
+               // mostrar en recycleview
+           } else {
+               // mostrar error
+           }
+        }
+    }
+
     override fun onSupportNavigateUp(): Boolean {
         val navController = this.findNavController(R.id.myNavHostFragment)
         return navController.navigateUp()
