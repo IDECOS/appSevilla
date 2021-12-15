@@ -2,8 +2,12 @@ package com.example.appsevilla
 
 
 class SitioSevilla (
+    val id: Int,
     val nameSite: String,
     val description: String,
-    var rate: String,
-    var imageUrl: String
+    val imageUrl: String,
+    val geo: String,
+    val temperature: String,
+    val rate: String
+
 )

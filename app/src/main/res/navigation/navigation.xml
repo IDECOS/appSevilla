@@ -18,6 +18,11 @@
         <action
             android:id="@+id/action_listSiteFragment_to_detailFragment"
             app:destination="@id/detailFragment" />
+        <action
+            android:id="@+id/action_listSiteFragment_to_settingsFragment"
+            app:destination="@id/settingsFragment"
+            app:popUpTo="@id/settingsFragment"
+            app:popUpToInclusive="false" />
     </fragment>
     <fragment
         android:id="@+id/itemSiteFragment"
@@ -42,5 +47,9 @@
             android:defaultValue="imageUrl"
             app:argType="string" />
     </fragment>
+    <fragment
+        android:id="@+id/settingsFragment"
+        android:name="com.example.appsevilla.SettingsFragment"
+        android:label="SettingsFragment" />
 
 </navigation>

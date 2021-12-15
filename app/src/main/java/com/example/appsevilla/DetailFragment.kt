@@ -11,6 +11,7 @@ import android.widget.TextView
 import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import android.content.Intent
+import android.content.pm.PackageManager
 import android.net.Uri
 
 
@@ -23,7 +24,14 @@ import android.net.Uri
  */
 class DetailFragment : Fragment() {
 
+    private val packageManager: PackageManager
+        get() {
+            TODO()
+        }
+
     val args: DetailFragmentArgs by navArgs()
+
+    private var geo = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -44,7 +52,8 @@ class DetailFragment : Fragment() {
         val title = args.nameSite
         val description =  args.description
         val imageUrl = args.imageUrl
-
+        val localization = "4.272487,-75.935547"
+        geo = localization
         titleLabel.text = title
         descriptionLabel.text = description
 
@@ -58,17 +67,15 @@ class DetailFragment : Fragment() {
         }
     }
 
-
     private fun ubications() {
-        val lat = "4.4455996"
-        val long = "75.127356"
+
         // Creates an Intent that will load a map of San Francisco
-        val gmmIntentUri: Uri = Uri.parse("geo:$lat,$long")
+        val gmmIntentUri: Uri = Uri.parse("geo:$geo")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
-//        mapIntent.resolveActivity(packageManager)?.let {
+        mapIntent.resolveActivity(packageManager).let {
             startActivity(mapIntent)
-        //}
+        }
 
 
     }
