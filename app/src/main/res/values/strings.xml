@@ -1,16 +1,27 @@
 <resources>
-    <string name="app_name">appSevilla</string>
-    <string name="foto_palomino">Cafe Palomino</string>
-    <string name="btn_regresar">Regresar</string>
-    <string name="text_descripcion">La esencia del Paisaje Cultural Cafetero está presente en cada aspecto y cada detalle que agregamos con amor para darle vida a Café Palomino. ¡Todo para que disfrutes una experiencia única y vivas la tradición cafetera en su máxima expresión!</string>
-    <string name="Sitio_Sevilla">Cafe Palomino</string>
-    <string name="todo">TODO</string>
-    <string name="title_site">Tituto</string>
-    <string name="sevilla_valle">Sevilla Valle</string>
-    <string name="site_thumb">Cafe Palomino</string>
-    <string name="cafe_image">cafe_image</string>
-    <string name="description">description</string>
+    <string name="app_name">AppSevilla</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Preference Titles -->
+    <string name="messages_header">Messages</string>
+    <string name="sync_header">Sync</string>
+
+    <!-- Messages Preferences -->
+    <string name="signature_title">Your signature</string>
+    <string name="reply_title">Default reply action</string>
+
+    <!-- Sync Preferences -->
+    <string name="sync_title">Sync email periodically</string>
+    <string name="attachment_title">Download incoming attachments</string>
+    <string name="attachment_summary_on">Automatically download attachments for incoming emails
+    </string>
+    <string name="attachment_summary_off">Only download attachments when manually requested</string>
+    <string name="site_thumb">Imagen Sitio</string>
+    <string name="title">Titulo</string>
+    <string name="description">Descripcion</string>
     <string name="rate">Rate</string>
-    <string name="descripcion">descripcion</string>
-    <string name="titulo">Titulo</string>
+    <string name="sevilla_valle">Sevilla Valle</string>
+    <string name="Sitio_Sevilla">Titulo</string>
+    <string name="text_descripcion">Descripcion</string>
+    <string name="todo">TODO</string>
 </resources>
