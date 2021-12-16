@@ -1,7 +1,8 @@
-package com.example.appsevilla
+package com.example.appsevilla.ui
 
 import android.os.Bundle
 import androidx.preference.PreferenceFragmentCompat
+import com.example.appsevilla.R
 
 class SettingsFragment : PreferenceFragmentCompat() {
 

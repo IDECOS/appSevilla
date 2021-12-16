@@ -1,4 +1,4 @@
-package com.example.appsevilla
+package com.example.appsevilla.ui
 
 
 import android.annotation.SuppressLint
@@ -6,36 +6,40 @@ import android.os.Bundle
 import android.util.Log
 import android.view.*
 import androidx.fragment.app.Fragment
-import androidx.fragment.app.FragmentManager
-import androidx.fragment.app.FragmentTransaction
+import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.navigation.findNavController
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
+import com.example.appsevilla.R
+import com.example.appsevilla.adapter.SitiosAdapter
+import com.example.appsevilla.model.SitePoi
+import com.example.appsevilla.viewmodel.SiteViewModel
 import org.json.JSONArray
 import org.json.JSONException
 import java.io.IOException
 
 class ListSiteFragment : Fragment() {
 
-    private lateinit var listSites: ArrayList<SitioSevilla>
+    private lateinit var listSites: ArrayList<SitePoi>
     private lateinit var siteAdapter: SitiosAdapter
     private lateinit var recyclerView: RecyclerView
+    private lateinit var siteViewModel: SiteViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-
         setHasOptionsMenu(true)
-
         return inflater.inflate(R.layout.fragment_list_site, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        siteViewModel = ViewModelProvider(requireActivity()).get(SiteViewModel::class.java)
 
         recyclerView = view.findViewById(R.id.list_recycle)
         val layoutManager = LinearLayoutManager(requireContext())
@@ -48,7 +52,6 @@ class ListSiteFragment : Fragment() {
 
     private fun setupRecycleView() {
         listSites = arrayListOf()
-        //listSites = createMockContacts()
         with(recyclerView) {
             addItemDecoration(
                 DividerItemDecoration(
@@ -63,15 +66,10 @@ class ListSiteFragment : Fragment() {
         recyclerView.adapter = siteAdapter
     }
 
-    private fun misitioOnClick(misitio: SitioSevilla, view: View) {
-        Log.d(TAG, "Click en ${misitio.nameSite}")
-
-        val action = ListSiteFragmentDirections
-            .actionListSiteFragmentToDetailFragment(misitio.nameSite,
-                misitio.description,
-                misitio.imageUrl
-            )
-        Navigation.findNavController((view)).navigate(action)
+    private fun misitioOnClick(sitePoi: SitePoi, view: View) {
+        Log.d(TAG, "Click en ${sitePoi.name}")
+        siteViewModel.select(sitePoi)
+        findNavController().navigate(R.id.action_listSiteFragment_to_detailFragment)
 
     }
 
@@ -83,18 +81,17 @@ class ListSiteFragment : Fragment() {
             val sitiosJson = JSONArray(sitioString)
             for (i in 0 until sitiosJson.length()) {
                 val sitioJson = sitiosJson.getJSONObject(i)
-                val sitioSevilla = SitioSevilla(
+                val sitePoi = SitePoi(
                     sitioJson.optInt(id.toString()),
                     sitioJson.getString("name"),
                     sitioJson.getString("description"),
                     sitioJson.getString("imageUrl"),
                     sitioJson.getString("geo"),
                     sitioJson.getString("temperature"),
-                    sitioJson.getString("rate")
-
+                    sitioJson.optInt("qualification")
                 )
-                Log.d(TAG, "generateSites: $sitioSevilla")
-                listSites.add(sitioSevilla)
+                Log.d(TAG, "generateSites: $sitePoi")
+                listSites.add(sitePoi)
             }
             siteAdapter.notifyDataSetChanged()
         } catch (e: JSONException) {
@@ -119,34 +116,12 @@ class ListSiteFragment : Fragment() {
     }
 
 
-//    private fun createMockContacts(): ArrayList<SitioSevilla> {
-//        return arrayListOf(
-//            SitioSevilla(
-//                    1,
-//                "Cafe Palomino",
-//                "Sitio de gran concurrencia",
-//                "5",
-//                "https://encolombia.com/wp-content/uploads/2012/12/cafeteria-1-330x205.jpg"
-//            ),
-//            SitioSevilla(
-//                2,
-//                "Paramo",
-//                "Sitio turistico frio",
-//                "5",
-//                "https://www.semana.com/resizer/_vO2-NbNOLgtaZ3bW128-KMPc1Q=/1200x675/filters:format(jpg):quality(50)//cloudfront-us-east-1.images.arcpublishing.com/semana/4ZVKNXJ6SVDQLFVMRDVIOYUASQ.jpg"
-//            )
-//        )
-//    }
-
     override fun onCreateOptionsMenu(menu: Menu, inflater: MenuInflater ) {
         super.onCreateOptionsMenu(menu, inflater)
         inflater.inflate(R.menu.settings_menu, menu)
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val fm: FragmentManager = requireActivity().supportFragmentManager
-        val ft: FragmentTransaction = fm.beginTransaction()
-
         return when(item.itemId){
             R.id.settigs -> {
                 val settings = ListSiteFragmentDirections.actionListSiteFragmentToSettingsFragment()
@@ -158,10 +133,7 @@ class ListSiteFragment : Fragment() {
                 true
             }
             else -> {return true}
-
         }
-
-
     }
 
     companion object {

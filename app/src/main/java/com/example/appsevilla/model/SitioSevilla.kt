@@ -1,4 +1,4 @@
-package com.example.appsevilla
+package com.example.appsevilla.model
 
 
 class SitioSevilla (
