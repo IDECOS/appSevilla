@@ -139,14 +139,10 @@ class ListSiteFragment : Fragment() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        val fm: FragmentManager = requireActivity().supportFragmentManager
-        val ft: FragmentTransaction = fm.beginTransaction()
-
         return when(item.itemId){
             R.id.settigs -> {
-                val settings = SettingsFragment()
-                ft.add(R.id.fragment_list_site, settings).commit()
-                ft.addToBackStack(null)
+                val settings = ListSiteFragmentDirections.actionListSiteFragmentToSettingsFragment()
+                Navigation.findNavController((requireView())).navigate(settings)
                 true
             }
             R.id.home -> {
@@ -156,7 +152,6 @@ class ListSiteFragment : Fragment() {
             else -> {return true}
 
         }
-
 
     }
 
