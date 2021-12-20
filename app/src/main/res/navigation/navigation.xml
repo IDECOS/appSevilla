@@ -7,7 +7,7 @@
 
     <fragment
         android:id="@+id/listSiteFragment"
-        android:name="com.example.appsevilla.ListSiteFragment"
+        android:name="com.example.appsevilla.ui.ListSiteFragment"
         android:label="Sitios de Interes"
         tools:layout="@layout/fragment_list_site">
         <action
@@ -31,7 +31,7 @@
         tools:layout="@layout/fragment_item_site" />
     <fragment
         android:id="@+id/detailFragment"
-        android:name="com.example.appsevilla.DetailFragment"
+        android:name="com.example.appsevilla.ui.DetailFragment"
         android:label="Informacion Sitio"
         tools:layout="@layout/fragment_detail">
         <argument
@@ -49,7 +49,7 @@
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"
-        android:name="com.example.appsevilla.SettingsFragment"
+        android:name="com.example.appsevilla.ui.SettingsFragment"
         android:label="SettingsFragment" />
 
 </navigation>

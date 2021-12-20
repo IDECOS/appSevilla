@@ -57,7 +57,7 @@ class DetailFragment : Fragment() {
     }
 
     private fun observeLiveData() {
-        siteViewModel.getSelected().observe(viewLifecycleOwner, { site ->
+        siteViewModel.getSiteObserver().observe(viewLifecycleOwner, { site ->
             title_label.text = site.name
             description_label.text = site.description
             geo = site.geo
@@ -75,11 +75,7 @@ class DetailFragment : Fragment() {
         val gmmIntentUri: Uri = Uri.parse("geo:$geo")
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
-        //mapIntent.resolveActivity(packageManager).let {
-            startActivity(mapIntent)
-        //}
-
-
+        startActivity(mapIntent)
     }
 
     companion object {

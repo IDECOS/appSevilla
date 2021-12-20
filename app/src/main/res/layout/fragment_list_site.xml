@@ -5,7 +5,7 @@
     android:id="@+id/fragment_list_site"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.appsevilla.ListSiteFragment">
+    tools:context="com.example.appsevilla.ui.ListSiteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
