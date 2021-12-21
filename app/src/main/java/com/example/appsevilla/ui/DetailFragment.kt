@@ -40,7 +40,7 @@ class DetailFragment : Fragment() {
     private lateinit var temperature: String
     private var qualification: Int = 0
 
-    val args: DetailFragmentArgs by navArgs()
+    private val args: DetailFragmentArgs by navArgs()
 
 
 

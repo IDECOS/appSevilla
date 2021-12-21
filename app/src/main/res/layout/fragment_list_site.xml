@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/title_site"
@@ -18,17 +17,17 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/sevilla_valle"
-            android:textSize="24sp"
             android:textColor="@color/black"
+            android:textSize="24sp"
             tools:ignore="MissingConstraints"
-            tools:layout_editor_absoluteX="-1dp"
-            tools:layout_editor_absoluteY="7dp" />
+            tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="82dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/list_recycle"
             android:layout_width="409dp"
             android:layout_height="686dp"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="36dp"
             app:layout_constraintTop_toBottomOf="@+id/title_site"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="2dp" />
