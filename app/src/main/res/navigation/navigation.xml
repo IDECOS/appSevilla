@@ -46,6 +46,20 @@
             android:name="imageUrl"
             android:defaultValue="imageUrl"
             app:argType="string" />
+        <argument
+            android:name="geo"
+            app:argType="string"
+            android:defaultValue="geo" />
+        <argument
+            android:name="temperature"
+            app:argType="string"
+            android:defaultValue="temperature" />
+        <argument
+            android:name="qualification"
+            app:argType="integer" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
     </fragment>
     <fragment
         android:id="@+id/settingsFragment"

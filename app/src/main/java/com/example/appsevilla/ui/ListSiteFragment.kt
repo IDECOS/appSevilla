@@ -1,7 +1,5 @@
 package com.example.appsevilla.ui
 
-
-import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.*
@@ -10,7 +8,6 @@ import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
-import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsevilla.R
@@ -23,7 +20,6 @@ class ListSiteFragment : Fragment() {
     private lateinit var siteAdapter: SitiosAdapter
     private lateinit var recyclerView: RecyclerView
     private lateinit var siteViewModel: SiteViewModel
-    private lateinit var listSite: ArrayList<SitePoi>
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -50,7 +46,7 @@ class ListSiteFragment : Fragment() {
         siteViewModel = ViewModelProvider(this).get(SiteViewModel::class.java)
         siteViewModel.getSiteObserver().observe(viewLifecycleOwner, {
             if (it != null){
-                siteAdapter.setUpdateSite(listSite)
+                siteAdapter.setUpdateSite(it as ArrayList<SitePoi>)
             }else{
                 Toast.makeText(activity, "Error de comunicacion", Toast.LENGTH_SHORT).show()
             }
@@ -60,27 +56,21 @@ class ListSiteFragment : Fragment() {
 
     private fun setupRecycleView() {
 
-        with(recyclerView) {
-            addItemDecoration(
-                DividerItemDecoration(
-                    requireContext(),
-                    DividerItemDecoration.VERTICAL
-                )
-            )
-        }
         siteAdapter = SitiosAdapter()
         siteAdapter.setOnItemClickListener(object : SitiosAdapter.OnItemClickListener{
-            override fun onItemClick(position: Int, data: SitePoi) {
-                Toast.makeText(activity,"Has seleccionado ${data.name}",Toast.LENGTH_SHORT).show()
-                val intent = Intent(activity, DetailFragment::class.java)
-                intent.putExtra("title", data.name)
-                intent.putExtra("description", data.description)
-                intent.putExtra("image", data.image)
-                intent.putExtra("geo", data.geo)
-                intent.putExtra("temperature", data.temperature)
-                intent.putExtra("qualification", data.qualification)
-
-                startActivity(intent)
+            override fun onItemClick(position: Int, list: SitePoi) {
+                Log.d(TAG, "Click en ${list.name}")
+                Toast.makeText(activity,"Has seleccionado ${list.name}",Toast.LENGTH_SHORT).show()
+                val action = ListSiteFragmentDirections.actionListSiteFragmentToDetailFragment(
+                    list.name,
+                    list.description,
+                    list.image,
+                    list.geo,
+                    list.temperature,
+                    list.qualification,
+                    list.id
+                )
+                Navigation.findNavController((requireView())).navigate(action)
             }
         })
         recyclerView.adapter = siteAdapter
@@ -108,9 +98,7 @@ class ListSiteFragment : Fragment() {
 
     companion object {
         private val TAG = ListSiteFragment::class.java.simpleName
-
     }
-
 
 }
 

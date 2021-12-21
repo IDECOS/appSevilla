@@ -12,9 +12,9 @@ import kotlinx.coroutines.launch
 
 class SiteViewModel: ViewModel() {
 
-   private var listSiteViewModel: MutableLiveData<SitePoi> = MutableLiveData()
+   private var listSiteViewModel: MutableLiveData<List<SitePoi>> = MutableLiveData()
 
-    fun getSiteObserver(): LiveData<SitePoi>{
+    fun getSiteObserver(): LiveData<List<SitePoi>>{
         return listSiteViewModel
     }
 
@@ -27,3 +27,5 @@ class SiteViewModel: ViewModel() {
         }
     }
 }
+
+

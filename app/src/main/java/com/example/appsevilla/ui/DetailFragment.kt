@@ -8,13 +8,14 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.navigation.fragment.navArgs
 import com.bumptech.glide.Glide
 import android.content.Intent
 import android.net.Uri
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.fragment.navArgs
 import com.example.appsevilla.R
 import com.example.appsevilla.viewmodel.SiteViewModel
+
 
 
 /*
@@ -24,14 +25,24 @@ import com.example.appsevilla.viewmodel.SiteViewModel
  */
 class DetailFragment : Fragment() {
 
+
     private lateinit var siteViewModel: SiteViewModel
-    private lateinit var title_label: TextView
+    private lateinit var titleLabel: TextView
     private lateinit var image: ImageView
-    private lateinit var description_label: TextView
+    private lateinit var descriptionLabel: TextView
+    private lateinit var temperatureLabel: TextView
+    private lateinit var qualificationLabel: TextView
 
-    //val args: DetailFragmentArgs by navArgs()
+    private lateinit var title: String
+    private lateinit var descrption: String
+    private lateinit var imageUrl: String
+    private lateinit var geo: String
+    private lateinit var temperature: String
+    private var qualification: Int = 0
 
-    private var geo = ""
+    val args: DetailFragmentArgs by navArgs()
+
+
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -45,28 +56,19 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        title_label = view.findViewById(R.id.title_view_detail)
-        description_label = view.findViewById(R.id.text_description)
-        image = view.findViewById(R.id.imageview_detail)
+        title = args.nameSite
+        descrption = args.description
+        imageUrl = args.imageUrl
+        geo = args.geo
+        temperature = args.temperature
+        qualification = args.qualification
+
         siteViewModel = ViewModelProvider(requireActivity()).get(SiteViewModel::class.java)
-        observeLiveData()
+        updateDisplay(view)
         val boton: Button = view.findViewById(R.id.ubication)
         boton.setOnClickListener {
             ubications()
         }
-    }
-
-    private fun observeLiveData() {
-        siteViewModel.getSiteObserver().observe(viewLifecycleOwner, { site ->
-            title_label.text = site.name
-            description_label.text = site.description
-            geo = site.geo
-
-            Glide.with(this)
-            .load(site.image)
-            .into(image)
-
-        })
     }
 
     private fun ubications() {
@@ -76,6 +78,23 @@ class DetailFragment : Fragment() {
         val mapIntent = Intent(Intent.ACTION_VIEW, gmmIntentUri)
         mapIntent.setPackage("com.google.android.apps.maps")
         startActivity(mapIntent)
+    }
+
+    private fun updateDisplay(view: View){
+        titleLabel = view.findViewById<TextView>(R.id.title_view_detail).apply{
+            text = title
+        }
+        descriptionLabel = view.findViewById<TextView>(R.id.text_description).apply {
+            text = descrption
+        }
+        temperatureLabel = view.findViewById<TextView>(R.id.temperature).apply{
+            text = temperature
+        }
+        image = view.findViewById(R.id.imageview_detail);
+        Glide.with(this)
+            .load(imageUrl)
+            .into(image)
+
     }
 
     companion object {

@@ -32,7 +32,7 @@ class SitiosAdapter : RecyclerView.Adapter<SitiosAdapter.SitiosViewHolder>() {
     }
 
     interface OnItemClickListener{
-        fun onItemClick(position: Int, data: SitePoi)
+        fun onItemClick(position: Int, list: SitePoi)
     }
 
     fun setOnItemClickListener(listener: OnItemClickListener){
