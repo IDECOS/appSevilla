@@ -15,7 +15,7 @@ class SitiosAdapter : RecyclerView.Adapter<SitiosAdapter.SitiosViewHolder>() {
 
     private var listSites = mutableListOf<SitePoi>()
     private lateinit var mListener : OnItemClickListener
-
+    //private var listSites: ArrayList<SitePoi>
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): SitiosViewHolder {
         val view = LayoutInflater.from(parent.context)
             .inflate(R.layout.fragment_item_site, parent, false)
