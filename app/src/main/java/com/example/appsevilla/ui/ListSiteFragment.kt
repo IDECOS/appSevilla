@@ -7,6 +7,7 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.navigation.Navigation
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.appsevilla.R
@@ -54,6 +55,15 @@ class ListSiteFragment : Fragment() {
     }
 
     private fun setupRecycleView() {
+
+        with(recyclerView) {
+            addItemDecoration(
+                DividerItemDecoration(
+                    requireContext(),
+                    DividerItemDecoration.VERTICAL
+                )
+            )
+        }
 
         siteAdapter = SitiosAdapter()
         siteAdapter.setOnItemClickListener(object : SitiosAdapter.OnItemClickListener{

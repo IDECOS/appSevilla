@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:id="@+id/item_site_fragment"
+    android:layout_margin="10dp"
     tools:context=".ItemSiteFragment">
 
     <androidx.constraintlayout.widget.ConstraintLayout

@@ -26,7 +26,7 @@
             app:layout_constraintRight_toRightOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.006" />
+            app:layout_constraintVertical_bias="0.047" />
 
         <TextView
             android:id="@+id/text_description"
@@ -44,10 +44,10 @@
             android:id="@+id/imageview_detail"
             android:layout_width="340dp"
             android:layout_height="255dp"
-            android:layout_marginTop="28dp"
+            android:layout_marginTop="20dp"
             android:contentDescription="@string/todo"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.487"
+            app:layout_constraintHorizontal_bias="0.641"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/title_view_detail"
             app:srcCompat="@drawable/ic_cafepalomino" />
@@ -60,7 +60,7 @@
             android:text="Ubicacion"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.82"
+            app:layout_constraintHorizontal_bias="0.858"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_description"
             app:layout_constraintVertical_bias="0.0" />
@@ -72,10 +72,10 @@
             android:text="Temperature"
             app:layout_constraintBottom_toTopOf="@+id/text_description"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.056"
-            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintHorizontal_bias="0.071"
+            app:layout_constraintStart_toEndOf="@+id/textViewTemp"
             app:layout_constraintTop_toBottomOf="@+id/imageview_detail"
-            app:layout_constraintVertical_bias="0.481" />
+            app:layout_constraintVertical_bias="0.456" />
 
         <TextView
             android:id="@+id/geo"
@@ -89,6 +89,17 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/text_description"
             app:layout_constraintVertical_bias="0.347" />
+
+        <TextView
+            android:id="@+id/textViewTemp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="16dp"
+            android:text="Temperatura:"
+            app:layout_constraintBottom_toTopOf="@+id/text_description"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/imageview_detail"
+            app:layout_constraintVertical_bias="0.456" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

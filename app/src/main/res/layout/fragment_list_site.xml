@@ -9,8 +9,7 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_margin="16dp">
+        android:layout_height="match_parent">
 
         <TextView
             android:id="@+id/title_site"
@@ -22,6 +21,13 @@
             android:textSize="24sp"
             tools:ignore="MissingConstraints"
             tools:layout_editor_absoluteX="0dp"
+            tools:layout_editor_absoluteY="82dp" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/list_recycle"
+            android:layout_width="409dp"
+            android:layout_height="686dp"
+            android:layout_marginTop="36dp"
             tools:layout_editor_absoluteY="31dp" />
 
         <androidx.recyclerview.widget.RecyclerView
