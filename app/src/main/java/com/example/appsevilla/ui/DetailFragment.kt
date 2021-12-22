@@ -90,7 +90,7 @@ class DetailFragment : Fragment() {
         temperatureLabel = view.findViewById<TextView>(R.id.temperature).apply{
             text = temperature
         }
-        image = view.findViewById(R.id.imageview_detail);
+        image = view.findViewById(R.id.imageview_detail)
         Glide.with(this)
             .load(imageUrl)
             .into(image)
